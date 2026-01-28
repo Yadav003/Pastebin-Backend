@@ -37,15 +37,15 @@ app.use('/api', healthRouter);
 app.use('/api', pastesRouter);
 
 // Static files in production
-if (config.nodeEnv === 'production') {
-  app.use(express.static(path.join(__dirname, 'public')));
-  app.get('/*', (req, res, next) => {
-    if (req.path.startsWith('/api') || req.path.startsWith('/p/')) {
-      return next();
-    }
-    // res.sendFile(path.join(__dirname, 'public', 'index.html'));
-  });
-}
+// if (config.nodeEnv === 'production') {
+//   app.use(express.static(path.join(__dirname, 'public')));
+//   app.get('/*', (req, res, next) => {
+//     if (req.path.startsWith('/api') || req.path.startsWith('/p/')) {
+//       return next();
+//     }
+//     // res.sendFile(path.join(__dirname, 'public', 'index.html'));
+//   });
+// }
 
 app.use('/api', notFoundHandler);
 app.use(jsonErrorHandler);
