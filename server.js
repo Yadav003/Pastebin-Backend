@@ -39,7 +39,7 @@ app.use('/api', pastesRouter);
 // Static files in production
 if (config.nodeEnv === 'production') {
   app.use(express.static(path.join(__dirname, 'public')));
-  app.get('*', (req, res, next) => {
+  app.get('/*', (req, res, next) => {
     if (req.path.startsWith('/api') || req.path.startsWith('/p/')) {
       return next();
     }
