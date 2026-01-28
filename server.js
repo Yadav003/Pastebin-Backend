@@ -9,6 +9,9 @@ const { ensureJson, jsonErrorHandler, notFoundHandler } = require('./middleware'
 const db = require('./db');
 const { initializeDatabase } = require('./db/init');
 
+
+
+app.use(cors());
 const app = express();
 
 // Initialize database on first request
@@ -21,7 +24,7 @@ app.use(async (req, res, next) => {
   next();
 });
 
-app.use(cors());
+// app.use(cors());
 
 app.use(express.json());
 
