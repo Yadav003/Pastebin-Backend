@@ -43,7 +43,7 @@ if (config.nodeEnv === 'production') {
     if (req.path.startsWith('/api') || req.path.startsWith('/p/')) {
       return next();
     }
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    // res.sendFile(path.join(__dirname, 'public', 'index.html'));
   });
 }
 
