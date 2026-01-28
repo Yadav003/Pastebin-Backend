@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
-const path = require('path');
+// const path = require('path');
 const config = require('./config');
 const { healthRouter, pastesRouter, viewRouter } = require('./routes');
 const { ensureJson, jsonErrorHandler, notFoundHandler } = require('./middleware');
@@ -21,10 +21,7 @@ app.use(async (req, res, next) => {
   next();
 });
 
-app.use(cors({
-  origin: config.frontendUrl,
-  credentials: true,
-}));
+app.use(cors());
 
 app.use(express.json());
 
