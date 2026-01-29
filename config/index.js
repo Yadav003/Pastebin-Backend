@@ -20,7 +20,8 @@ const config = {
   testMode: process.env.TEST_MODE === '1',
   // Dynamic URLs: prioritize env vars, fallback to Vercel auto-detection, then localhost
   frontendUrl: process.env.FRONTEND_URL || vercelUrl || 'http://localhost:5173',
-  baseUrl: process.env.BASE_URL || vercelUrl || 'http://localhost:3000',
+  // Base URL for paste links should generally be the frontend URL
+  baseUrl: process.env.BASE_URL || process.env.FRONTEND_URL || vercelUrl ,
 };
 
 module.exports = config;
